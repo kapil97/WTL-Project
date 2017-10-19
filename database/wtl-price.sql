@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2017 at 04:51 AM
+-- Generation Time: Oct 19, 2017 at 12:23 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -64,7 +64,9 @@ CREATE TABLE `userinfo` (
 
 INSERT INTO `userinfo` (`u_id`, `u_name`, `u_mail`, `u_pass`) VALUES
 (1, 'test123', 'test1@gmail.com', 'test123'),
-(2, 'kapil', 'kapil123', '0514a615be29e74c01ff');
+(2, 'kapil', 'kapil123', '0514a615be29e74c01ff'),
+(3, 'siddhesh', 'siddhesh@xyz.com', 'test123'),
+(4, 'ash@chu.cm', 'ash123', '00f7225b7be554fea988');
 
 -- --------------------------------------------------------
 
@@ -115,7 +117,7 @@ ALTER TABLE `webinfo`
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
