@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2017 at 04:51 AM
+-- Generation Time: Oct 19, 2017 at 03:24 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -36,14 +36,6 @@ CREATE TABLE `products` (
   `p_ecw3` varchar(8) DEFAULT NULL,
   `p_link` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`p_id`, `P_name`, `p_ecw1`, `p_ecw2`, `p_ecw3`, `p_link`) VALUES
-('lap1', 'HP-Pavilion', '45000', '47999', '45999', '/../pics/hp-pav'),
-('lap2', 'Dell-7560', '81000', '83999', '79999', '/../pics/dell-756');
 
 -- --------------------------------------------------------
 

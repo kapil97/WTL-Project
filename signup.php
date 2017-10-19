@@ -1,3 +1,6 @@
+<?php
+  include ('config/signupAction.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,16 +44,13 @@
               <a class="nav-link js-scroll-trigger" href="index.html#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="index.html#team">Team</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="index.html#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="login.html">LOGIN</a>
+              <a class="nav-link js-scroll-trigger" href="login.php">LOGIN</a>
             </li>
           </ul>
         </div>
@@ -78,11 +78,11 @@
         </div>
         <div class="container">
         <div class="wrapper">
-            <form class="form-signin">       
+           <form action="config/signupAction.php" class="form-signin" name="signup" method="POST">       
               <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" /><br>
               <input type="text" class="form-control" name="emailid" placeholder="Email Id" required="" autofocus="" /><br>
-              <input type="password" class="form-control" name="password" placeholder="Password" required=""/><br>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>   
+              <input type="password" class="form-control" name="pass" placeholder="Password" required=""/><br>
+             <button class="btn btn-lg btn-primary btn-block" name="register" type="submit">Register</button>  
             </form>
           </div>
         </div>
