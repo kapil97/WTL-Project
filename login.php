@@ -23,6 +23,39 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/agency.min.css" rel="stylesheet">
 
+    <style type="text/css">
+
+      .wrapper {  
+        margin-top: 80px;
+        margin-bottom: 80px;
+      }
+
+      .form-signin {
+        max-width: 380px;
+        padding: 15px 35px 45px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid rgba(0,0,0,0.1);
+      }
+
+        .form-signin-heading,
+        .checkbox {
+          margin-bottom: 30px;
+        }
+
+        .checkbox {
+          font-weight: normal;
+        }
+
+        .form-control {
+          position: relative;
+          font-size: 16px;
+          height: auto;
+          padding: 10px;
+        }
+
+    </style>
+
   </head>
 
   <body id="page-top">
@@ -41,51 +74,38 @@
               <a class="nav-link js-scroll-trigger" href="index.html#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="index.html#team">Team</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="index.html#contact">Contact</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="login.html">LOGIN</a>
-            </li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <!-- Header -->
-    <!-- <header class="masthead">
-      <div class="container">
-        <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Our Site!</div>
-          <div class="intro-heading">It's Nice To Meet You</div>
-          <a class="btn btn-xl js-scroll-trigger" href="../index.html#services">Tell Me More</a>
-        </div>
-      </div>
-    </header> -->
-<!-- Signup -->
-    <section id="signup">
+<!-- Login -->
+    <section id="login">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Signup</h2>
-            <h3 class="section-subheading text-muted">Join us for better experience !</h3>
+            <h2 class="section-heading">Login</h2>
+            <h3 class="section-subheading text-muted" style="margin-bottom: 0px;">Welcome back !</h3>
           </div>
         </div>
-        <div class="container">
-        <div class="wrapper">
-            <form class="form-signin">       
-              <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" /><br>
-              <input type="text" class="form-control" name="emailid" placeholder="Email Id" required="" autofocus="" /><br>
-              <input type="password" class="form-control" name="password" placeholder="Password" required=""/><br>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>   
+          <div class="wrapper" style="margin-top: 50px; margin-bottom: 30px;">
+            <form class="form-signin">      
+              <br> 
+              <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
+              <br>
+              <input type="password" class="form-control" name="password" placeholder="Password" required=""/>  
+              <br>    
+              <label class="checkbox">
+                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+              </label>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
             </form>
           </div>
-        </div>
+      </div>
     </section>
 
     <!-- Footer -->
