@@ -74,9 +74,6 @@
               <a class="nav-link js-scroll-trigger" href="index.html#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="index.html#team">Team</a>
             </li>
             <li class="nav-item">
