@@ -25,7 +25,7 @@ else{
   //$_SESSION["ses_u_name"] = $row['u_name'];
   $_SESSION['ses_u_name'] = $log_username;
   //echo "<script type='text/javascript'>alert('Login Successful')</script>";
-  header('location: "../temp_disp.php"');
+  header('location: "../categories.php"');
     } 
     else {
     $error = "Username or Password is invalid";

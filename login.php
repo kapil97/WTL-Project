@@ -4,7 +4,7 @@
 include('config/login_session.php'); // Includes Login Script
 
 if(isset($_SESSION['ses_u_name'])){
-header("location: temp_disp.php");
+header("location: categories.php");
 }
 
 //include ('temp_disp.php');
