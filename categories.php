@@ -1,5 +1,3 @@
-<?php include ('config/comconn.php');
-		include ('config/login_session.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +11,7 @@
     <title>COMPARATOR | CATEGORIES</title>
 
     <!-- Bootstrap core CSS -->
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -40,14 +38,8 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">Hello ! <?php  echo $_SESSION['ses_u_name'];  ?></a>
+              <a class="nav-link js-scroll-trigger" href="../index.html#contact">Logout</a>
             </li>
-            <li class="nav-item">
-              <form action="logout.php">
-              <button class="btn btn-md btn-primary btn-block" name="logout" type="submit">LOGOUT</button>
-            </form>
-            </li>
-
           </ul>
         </div>
       </div>
@@ -62,114 +54,46 @@
 
           <h1 class="my-4"> </h1>
           <div class="list-group" style="font-size: 30px">
-            <a href="#" class="list-group-item">Laptops</a>
-            <a href="#" class="list-group-item">Mobiles</a>
-            <a href="#" class="list-group-item">Tablets</a>
+            <a href="categories.php?cat=Laptop" class="list-group-item">Laptops</a>
+            <a href="categories.php?cat=Mobile" class="list-group-item">Mobiles</a>
+            <a href="categories.php?cat=Tablet" class="list-group-item">Tablets</a>
           </div>
 
         </div>
         <!-- /.col-lg-3 -->
-
+        <?php
+          include ('config/comconn.php');
+          $cat="MostRec";
+          if ($_SERVER['REQUEST_METHOD']=='GET') {
+            if (Key_Exists("cat",$_GET)) {
+              $cat=$_GET['cat'];
+            }
+            $result=mysqli_query($comconn,"SELECT ProdName,ProdImg FROM Products where ProdCat='".$cat."'");
+          }
+        ?>
         <div class="col-lg-9">
           <h5>Most Recommended</h5>
           <div class="row">
-
+            <?php
+            while(($row=mysqli_fetch_row($result))==true)
+            {
+            ?>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="<?= $row[1] ?>"><img class="card-img-top" src="<?= $row[1] ?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">Item One</a>
+                    <a href="compare.php"><?= $row[0]?></a>
                   </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
               </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Two</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Three</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Four</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Five</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Six</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
+            <?php
+            }
+            ?>
           </div>
           <!-- /.row -->
                     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -248,19 +172,19 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/popper/popper.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/popper/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Contact form JavaScript -->
-    <script src="../js/jqBootstrapValidation.js"></script>
-    <script src="../js/contact_me.js"></script>
+    <script src="assets/js/jqBootstrapValidation.js"></script>
+    <script src="assets/js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="../js/agency.min.js"></script>
+    <script src="assets/js/agency.min.js"></script>
 
   </body>
 
