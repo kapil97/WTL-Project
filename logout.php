@@ -3,7 +3,10 @@
    if(session_destroy())
 {
    unset($_SESSION["ses_u_name"]); 
-   echo 'You have successfully logged out';
-   header('Refresh: 2; URL = login.php');
+   //echo 'You have successfully logged out';
+   //header('Refresh: 2; URL = login.php');
+      echo '<script>alert("Logout Successful! Please Log in again to continue");
+			window.location.href="login.php";
+			</script>';
 }
 ?>

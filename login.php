@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //include ('config/scomconn.php');
 include('config/login_session.php'); // Includes Login Script
 

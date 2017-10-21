@@ -25,7 +25,10 @@ else{
   //$_SESSION["ses_u_name"] = $row['u_name'];
   $_SESSION['ses_u_name'] = $log_username;
   //echo "<script type='text/javascript'>alert('Login Successful')</script>";
-  header('location: "../categories.php"');
+  //header('location: "../categories.php"');
+    echo '<script>alert("Login Successful! You are being redirected to the Home Page");
+            window.location.href="../categories.php";
+            </script>';
     } 
     else {
     $error = "Username or Password is invalid";

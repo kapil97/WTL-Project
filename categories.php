@@ -1,3 +1,5 @@
+<?php include ('config/comconn.php');
+    session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,9 +38,14 @@
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="../index.html#contact">Logout</a>
+              <a class="nav-link js-scroll-trigger" href="">Hello ! <?php  echo $_SESSION['ses_u_name'];  ?></a>
+            </li>
+            <li class="nav-item">
+              <form action="logout.php">
+              <button class="btn btn-md btn-primary btn-block" name="logout" type="submit">LOGOUT</button>
+            </form>
             </li>
           </ul>
         </div>
