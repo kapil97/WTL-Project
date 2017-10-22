@@ -7,28 +7,6 @@ if(isset($_SESSION['ses_u_name'])){
 header("location: categories.php");
 }
 
-//include ('temp_disp.php');
-  
- /* if (isset($_POST['login']) && !empty($_POST['logusername']) 
-               && !empty($_POST['logpass'])
-*/
-//$message="";
-//if(!empty($_POST["login"])) {
-
-/* $qlogin = mysqli_query($comconn,"SELECT * FROM userinfo WHERE u_name='" . $_POST["logusername"] . "' and password = '". $_POST["logpass"]."'");*/
-/*  $log_username = $_POST['logusername'];
-  $log_pass = $_POST['logpass'];
-
-  $qlogin = mysqli_query($comconn,"SELECT * FROM userinfo WHERE u_name='$log_username' and u_pass='$log_pass'");
-  $row  = mysqli_fetch_array($qlogin);
-  if(is_array($row)) {
-  $_SESSION["ses_u_name"] = $row['u_name'];
-  //echo "<script type='text/javascript'>alert('Login Successful')</script>";
-  header("location: temp_disp.php")
-  } else {
-    $error = "Username or Password is invalid";
-}
-}*/
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +70,7 @@ header("location: categories.php");
   </head>
 
   <body id="page-top">
-<!-->
+
     <!--> Navigation <!-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
@@ -110,12 +88,12 @@ header("location: categories.php");
               <a class="nav-link js-scroll-trigger" href="index.html#team">Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="signup.php">SIGNUP</a>
             </li>
           </ul>
         </div>
       </div>
-    </nav><!-->
+    </nav>
 <!--> Login <!-->
     <section id="login">
       <div class="container">
@@ -132,9 +110,6 @@ header("location: categories.php");
               <br>
               <input type="password" class="form-control" name="logpass" placeholder="Password" required=""/>  
               <br>    
-<!-->              <label class="checkbox">
-                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-              </label><!-->
               <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Login</button> 
               <span><?php echo $error; ?></span>  
             </form>
@@ -142,60 +117,15 @@ header("location: categories.php");
       </div>
     </section>
 
-    <!--> Footer <!-->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2017</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!--> Bootstrap core JavaScript <!-->
     <script src="assets/jquery/jquery.min.js"></script>
     <script src="assets/popper/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 
-    <!--> Plugin JavaScript <!-->
     <script src="assets/jquery-easing/jquery.easing.min.js"></script>
 
-    <!--> Contact form JavaScript <!-->
     <script src="js/jqBootstrapValidation.js"></script>
 
-    <!--> Custom scripts for this template <!-->
     <script src="js/agency.min.js"></script>
 
   </body>
-
 </html>

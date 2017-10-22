@@ -32,7 +32,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #222;">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">COMPARATOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.html">COMPARATOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -79,7 +79,7 @@
           }
         ?>
         <div class="col-lg-9">
-          <h5>Most Recommended</h5>
+          <h5>Click on Product Name to Compare Prices</h5><br>
           <div class="row">
             <?php
             while(($row=mysqli_fetch_row($result))==true)
@@ -137,47 +137,6 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2017</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
     <!-- Bootstrap core JavaScript -->
     <script src="assets/jquery/jquery.min.js"></script>
     <script src="assets/popper/popper.min.js"></script>

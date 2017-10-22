@@ -157,7 +157,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #222;">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">COMPARATOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.html">COMPARATOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -179,7 +179,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading" style="margin-top: 150px;">
-    <h3><i class="fa fa-clock-o fa-fw"></i> Price Comparison</h3>
+    <center><h3><i class="fa fa-clock-o fa-fw"></i> Price Comparison</h3></center>
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body" style="margin-left: 60px; margin-right: 60px;">
@@ -191,12 +191,12 @@
                     if (Key_Exists("prod",$_GET)) {
                       $prod=$_GET['prod'];
                     }
-                    $result=mysqli_query($comconn,"SELECT CostAma,CostFlip,CostSnap FROM Products where ProdName='".$prod."'");
-                    $res=mysqli_query($comconn,"SELECT ProdImg FROM Products where ProdName='".$prod."'");
+                    $result=mysqli_query($comconn,"SELECT CostAma,CostFlip,CostSnap FROM products where ProdName='".$prod."'");
+                    $res=mysqli_query($comconn,"SELECT ProdImg FROM products where ProdName='".$prod."'");
                   }
                   $row=mysqli_fetch_assoc($result); 
                   $img=mysqli_fetch_row($res);
-                  asort($row);
+                  asort($row);	
                   $i=0;
                   foreach($row as $x=>$x_value)
                    {
@@ -227,8 +227,6 @@
           elseif ($i==1) {
           ?>
               <li class="timeline-inverted">
-              <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-              </div>
               <div class="timeline-panel">
                   <div class="timeline-heading">
                       <h4 class="timeline-title"><center><?= $prod ?></center></h4>
@@ -257,43 +255,10 @@
 </div>
 
     <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2017</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+     <footer>
+		<form action="categories.php">
+              <button class="btn btn-md btn-primary btn-block" name="backcat" type="submit">Go Back To PRODUCT CATEGORIES</button>
+           </form>
     </footer>
 
     <!-- Bootstrap core JavaScript -->
