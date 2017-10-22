@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$dbname = "wtl-price";
+$dbname = "wtl-price-temp";
 $comconn = mysqli_connect($server,$username,$password,$dbname);
 if(!$comconn)
 {

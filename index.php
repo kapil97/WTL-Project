@@ -52,8 +52,18 @@
               <a class="nav-link js-scroll-trigger" href="">Hello ! '.$_SESSION['ses_u_name'].'</a>
             </li>
             <li class="nav-item">
+              <form action="wishlist.php">
+              <button class="btn btn-md btn-primary btn-block" name="wishlist" style="margin-top:5px;margin-right: 8px;" type="submit">View Wishlist</button>
+            </form>
+            </li>
+            <li class="nav-item">
+              <form action="categories.php">
+              <button class="btn btn-md btn-primary btn-block" name="categories" style="margin-right: 8px;margin-left: 8px;margin-top:5px" type="submit">Product Categories</button>
+            </form>
+            </li>
+            <li class="nav-item">
               <form action="logout.php">
-              <button class="btn btn-md btn-primary btn-block" name="logout" type="submit">LOGOUT</button>
+              <button class="btn btn-md btn-primary btn-block" name="logout" style="margin-left: 16px;margin-top:5px" type="submit">LOGOUT</button>
             </form>
             </li>';
             }
@@ -183,59 +193,20 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="assets/img/team/k.jpg" alt="">
               <h4>Kamleshwar Ragava</h4>
-              <p class="text-muted">Programmer and GUI Designer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="assets/img/team/a.jpg" alt="">
               <h4>Ashwathi Ashok</h4>
-              <p class="text-muted">Database Specialist and System Analyst</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="assets/img/team/s.jpg" alt="">
               <h4>Siddhesh Shinde</h4>
-              <p class="text-muted">System Architect and System Librarian</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

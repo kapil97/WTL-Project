@@ -32,7 +32,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #222;">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.html">COMPARATOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.php">COMPARATOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -43,8 +43,13 @@
               <a class="nav-link js-scroll-trigger" href="">Hello ! <?php  echo $_SESSION['ses_u_name'];  ?></a>
             </li>
             <li class="nav-item">
+              <form action="wishlist.php">
+              <button class="btn btn-md btn-primary btn-block" name="wishlist" style="margin-right: 8px;margin-top:5px" type="submit">View Wishlist</button>
+            </form>
+            </li>
+            <li class="nav-item">
               <form action="logout.php">
-              <button class="btn btn-md btn-primary btn-block" name="logout" type="submit">LOGOUT</button>
+              <button class="btn btn-md btn-primary btn-block" name="logout" style="margin-left: 8px;margin-top: 5px" type="submit">LOGOUT</button>
             </form>
             </li>
           </ul>

@@ -33,7 +33,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #222;">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.html">COMPARATOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.php">COMPARATOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -44,8 +44,13 @@
               <a class="nav-link js-scroll-trigger" href="">Hello ! <?php  echo $_SESSION['ses_u_name'];  ?></a>
             </li>
             <li class="nav-item">
+              <form action="categories.php">
+              <button class="btn btn-md btn-primary btn-block" name="categories" style="margin-top:5px;margin-right: 8px;" type="submit">Product categories</button>
+            </form>
+            </li>
+            <li class="nav-item">
               <form action="logout.php">
-              <button class="btn btn-md btn-primary btn-block" name="logout" type="submit">LOGOUT</button>
+              <button class="btn btn-md btn-primary btn-block" name="logout" style="margin-left: 8px;margin-top:5px" type="submit">LOGOUT</button>
             </form>
             </li>
           </ul>
@@ -74,19 +79,19 @@
           if ($_SERVER['REQUEST_METHOD']=='GET') {
             if (Key_Exists("prod",$_GET)) {
               $prod=$_GET['prod'];
-              $s="select * from Wishlist where UserId=$id AND ProdName='".$prod."'";
+              $s="select * from wishlist where UserID=$id AND ProdName='".$prod."'";
             $result = mysqli_query($comconn,$s);
             $row = mysqli_fetch_row($result);
             if($row==false)
             {
-            $s = "select (max(WishID)+1) from Wishlist";
+            $s = "select (max(WishID)+1) from wishlist";
             $result = mysqli_query($comconn,$s);
             $row = mysqli_fetch_row($result);
             $no=1;
             if($row[0]!=NULL)
               $no=$row[0];
             $id=$_SESSION['id'];
-            $result=mysqli_query($comconn,"insert into Wishlist values($no,$id,'".$prod."')");
+            $result=mysqli_query($comconn,"insert into wishlist values('$no','$id','".$prod."')");
           }
           else
           {
@@ -98,13 +103,13 @@ echo "<h5>Already added to Wishlist..!</h5>";
           }
           }
           }
-          $result=mysqli_query($comconn,"select ProdName from Wishlist where UserId=$id.");
+          $result=mysqli_query($comconn,"select ProdName from wishlist where UserId='$id'");
       ?>
           <div class="row">
             <?php
             while(($row=mysqli_fetch_row($result))==true)
             {
-              $res=mysqli_query($comconn,"select ProdImg from Products where ProdName='".$row[0]."'");
+              $res=mysqli_query($comconn,"select ProdImg from products where ProdName='".$row[0]."'");
               $img=mysqli_fetch_row($res);
             ?>
             <div class="col-lg-4 col-md-6 mb-2">
