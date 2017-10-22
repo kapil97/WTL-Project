@@ -15,7 +15,7 @@ else{
   $row  = mysqli_fetch_array($qlogin);
   if(is_array($row)) {
   $_SESSION['ses_u_name'] = $log_username;
-
+  $_SESSION['id']=$row['u_id'];
     echo '<script>
             window.location.href="../categories.php";
             </script>';

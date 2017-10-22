@@ -1,4 +1,5 @@
 <?php include ('config/comconn.php');
+  include ('config/login_session.php');
     session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,74 +62,64 @@
 
           <h1 class="my-4"> </h1>
           <div class="list-group" style="font-size: 30px">
-            <a href="categories.php?cat=Laptop" class="list-group-item">Laptops</a>
-            <a href="categories.php?cat=Mobile" class="list-group-item">Mobiles</a>
-            <a href="categories.php?cat=Tablet" class="list-group-item">Tablets</a>
           </div>
 
         </div>
         <!-- /.col-lg-3 -->
-<?php
+
+      <?php
           include ('config/comconn.php');
-          $cat="MostRec";
+          $prod="";
+          $id=$_SESSION['id'];
           if ($_SERVER['REQUEST_METHOD']=='GET') {
-            if (Key_Exists("cat",$_GET)) {
-              $cat=$_GET['cat'];
-            }
-            $result=mysqli_query($comconn,"SELECT ProdName,ProdImg FROM Products where ProdCat='".$cat."'");
+            if (Key_Exists("prod",$_GET)) {
+              $prod=$_GET['prod'];
+              $s="select * from Wishlist where UserId=$id AND ProdName='".$prod."'";
+            $result = mysqli_query($comconn,$s);
+            $row = mysqli_fetch_row($result);
+            if($row==false)
+            {
+            $s = "select (max(WishID)+1) from Wishlist";
+            $result = mysqli_query($comconn,$s);
+            $row = mysqli_fetch_row($result);
+            $no=1;
+            if($row[0]!=NULL)
+              $no=$row[0];
+            $id=$_SESSION['id'];
+            $result=mysqli_query($comconn,"insert into Wishlist values($no,$id,'".$prod."')");
           }
+          else
+          {
+            
         ?>
         <div class="col-lg-9">
-          <h5>Click on Product Name to Compare Prices</h5><br>
+      <?php
+echo "<h5>Already added to Wishlist..!</h5>";
+          }
+          }
+          }
+          $result=mysqli_query($comconn,"select ProdName from Wishlist where UserId=$id.");
+      ?>
           <div class="row">
             <?php
             while(($row=mysqli_fetch_row($result))==true)
             {
+              $res=mysqli_query($comconn,"select ProdImg from Products where ProdName='".$row[0]."'");
+              $img=mysqli_fetch_row($res);
             ?>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="<?= $row[1] ?>"><img class="card-img-top" src="<?= $row[1] ?>" alt=""></a>
+            <div class="col-lg-4 col-md-6 mb-2">
+              <div class="card h-50">
+                <a href="<?= $row[0] ?>"><img class="card-img-top" src="<?= $img[0] ?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="compare.php?prod=<?= $row[0]?>"><?= $row[0]?></a>
                   </h4>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted"><a href="wishlist.php?prod=<?= $row[0]?>"><i class="fa fa-heart" aria-hidden="true"></i></a></small>
-                </div>
               </div>
             </div>
             <?php
             }
             ?>
-          </div>
-          <!-- /.row -->
-                    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <center><img class="d-block img-fluid" src="assets/img/logos/amazon-logo.jpg" alt="First slide"></center>
-              </div>
-              <div class="carousel-item">
-                <center><img class="d-block img-fluid" src="assets/img/logos/flipkart-logo.jpg" alt="Second slide"></center>
-              </div>
-              <div class="carousel-item">
-                <center><img class="d-block img-fluid" src="assets/img/logos/snapdeal-logo.png" alt="Third slide"></center>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
         </div>
         <!-- /.col-lg-9 -->
 

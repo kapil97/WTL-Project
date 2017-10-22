@@ -1,5 +1,6 @@
-<?php include ('config/comconn.php');
-		include ('config/login_session.php'); ?>
+<?php
+    include ('config/login_session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
     <title>COMPARATOR | </title>
 
     <!-- Bootstrap core CSS -->
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -157,14 +158,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #222;">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.php">COMPARATOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.html">COMPARATOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-			<li class="nav-item">
+      <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="">Hello ! <?php  echo $_SESSION['ses_u_name'];  ?></a>
             </li>
             <li class="nav-item">
@@ -196,7 +197,7 @@
                   }
                   $row=mysqli_fetch_assoc($result); 
                   $img=mysqli_fetch_row($res);
-                  asort($row);	
+                  asort($row);  
                   $i=0;
                   foreach($row as $x=>$x_value)
                    {
@@ -227,6 +228,8 @@
           elseif ($i==1) {
           ?>
               <li class="timeline-inverted">
+              <div class="timeline-badge"><i class="fa fa-check"></i>
+              </div>
               <div class="timeline-panel">
                   <div class="timeline-heading">
                       <h4 class="timeline-title"><center><?= $prod ?></center></h4>
@@ -256,7 +259,7 @@
 
     <!-- Footer -->
      <footer>
-		<form action="categories.php">
+    <form action="categories.php">
               <button class="btn btn-md btn-primary btn-block" name="backcat" type="submit">Go Back To PRODUCT CATEGORIES</button>
            </form>
     </footer>
