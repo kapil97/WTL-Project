@@ -21,17 +21,17 @@ header("location: categories.php");
 
     <title>Home | Comparator</title>
 
-    <!--> Bootstrap core CSS <!-->
+    <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <!--> Custom fonts for this template <!-->
+    <!-- Custom fonts for this template -->
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <!--> Custom styles for this template <!-->
+    <!-- Custom styles for this template -->
     <link href="assets/css/agency.min.css" rel="stylesheet">
 
     <style type="text/css">
@@ -71,7 +71,7 @@ header("location: categories.php");
 
   <body id="page-top">
 
-    <!--> Navigation <!-->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="index.html">COMPARATOR</a>
