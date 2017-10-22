@@ -68,7 +68,7 @@
 
         </div>
         <!-- /.col-lg-3 -->
-        <?php
+<?php
           include ('config/comconn.php');
           $cat="MostRec";
           if ($_SERVER['REQUEST_METHOD']=='GET') {
@@ -90,7 +90,7 @@
                 <a href="<?= $row[1] ?>"><img class="card-img-top" src="<?= $row[1] ?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="compare.php"><?= $row[0]?></a>
+                    <a href="compare.php?prod=<?= $row[0]?>"><?= $row[0]?></a>
                   </h4>
                 </div>
                 <div class="card-footer">
