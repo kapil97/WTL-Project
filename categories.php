@@ -99,7 +99,7 @@
                   </h4>
                 </div>
                 <div class="card-footer">
-                  <small class="text-muted"><a href="wishlist.php?prod=<?= $row[0]?>"><i class="fa fa-heart" aria-hidden="true"></i></a></small>
+                  <small class="text-muted"><a href="wishlist.php?prod=<?= $row[0]?>"><i class="fa fa-heart" aria-hidden="true"></i>Add to wishlist</a></small>
                 </div>
               </div>
             </div>

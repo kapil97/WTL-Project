@@ -103,6 +103,14 @@ echo "<h5>Already added to Wishlist..!</h5>";
           }
           }
           }
+          if ($_SERVER['REQUEST_METHOD']=='GET') {
+            if (Key_Exists("remove",$_GET)) {
+              $prod=$_GET['remove'];
+              $s="delete from wishlist where UserID=$id AND ProdName='".$prod."'";
+            $result = mysqli_query($comconn,$s);
+            if($result==true)
+              echo "<h5>Removed from wishlist..!</h5>";
+          }}
           $result=mysqli_query($comconn,"select ProdName from wishlist where UserId='$id'");
       ?>
           <div class="row">
@@ -113,12 +121,15 @@ echo "<h5>Already added to Wishlist..!</h5>";
               $img=mysqli_fetch_row($res);
             ?>
             <div class="col-lg-4 col-md-6 mb-2">
-              <div class="card h-50">
+              <div class="card h-60">
                 <a href="<?= $row[0] ?>"><img class="card-img-top" src="<?= $img[0] ?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="compare.php?prod=<?= $row[0]?>"><?= $row[0]?></a>
                   </h4>
+                      <div class="card-footer">
+                  <a href="wishlist.php?remove=<?= $row[0]?>">Remove from wishlist</a>
+                </div>
                 </div>
               </div>
             </div>
