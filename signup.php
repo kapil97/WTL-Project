@@ -1,6 +1,53 @@
 <?php
-  include ('config/signupnew.php');
+include "config/comconn.php";
+$error="";
+$flag = 1;
+
+if (isset($_POST['register']))
+  {
+    $signup_name = $_POST['name'];
+    $signup_username = $_POST['username'];
+    $signup_emailid = $_POST['emailid'];
+    $signup_pass = $_POST['pass'];
+      $signup_repass = $_POST['repass'];
+
+  $qname = mysqli_query($comconn,"SELECT * FROM userinfo WHERE u_name='$signup_username'");
+    $srow  = mysqli_fetch_array($qname);
+    if(is_array($srow)){
+        $flag = 0;
+        echo '<script>alert("Username already exists");
+      document.reg.username.value=""
+      </script>';
+      }
+      
+
+  if(((preg_match( '/\d/', $signup_name ))==true) || (preg_match('/[^a-zA-Z\d]/', $signup_name)==true)) {
+      $flag = 0;
+      echo '<script>alert("Name cannot contain numbers or special characters");
+      document.reg.name.value=""
+      </script>';
+  }
+
+    
+    if($signup_pass!=$signup_repass){
+    $flag = 0;
+   echo '<script>alert("Re-entered password is incorrect");
+      document.reg.pass.value=""
+      document.reg.repass.value=""
+      </script>';
+    }
+
+
+     if($flag == 1)
+    {
+    $qinsert = "INSERT INTO userinfo VALUES(DEFAULT,'$signup_name','$signup_username','$signup_emailid','$signup_pass')";
+    mysqli_query($comconn,$qinsert);
+    echo '<script>alert("Registration Successful");
+    window.location.href="login.php";</script>';
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +125,7 @@
         </div>
         <div class="container">
         <div class="wrapper">
-           <form action="config/signupAction.php" class="form-signin" name="signup" method="POST">       
+           <form action="" class="form-signin" name="signup" method="POST">       
               <input type="text" class="form-control" name="name" placeholder="Enter your name" required="" autofocus="" /><br>
               <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" /><br>
               <input type="email" class="form-control" name="emailid" placeholder="Email Id" required="" autofocus="" /><br>

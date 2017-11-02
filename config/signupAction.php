@@ -22,7 +22,7 @@ if (isset($_POST['register']))
   		}
     	
 
-	if(((preg_match( '/\d/', $signup_name ))==true) || (preg_match('/[^a-zA-Z\d]/', $signup_name))) {
+	if(((preg_match( '/\d/', $signup_name ))==true) || (preg_match('/[^a-zA-Z\d]/', $signup_name)==true)) {
    		$flag = 0;
    		echo '<script>alert("Name cannot contain numbers or special characters");
 			document.reg.name.value=""
@@ -43,7 +43,7 @@ if (isset($_POST['register']))
 
 		 if($flag == 1)
     {
-		$qinsert = "INSERT INTO userinfo VALUES(DEFAULT,'$signup_name',$signup_username','$signup_emailid','$signup_pass')";
+		$qinsert = "INSERT INTO userinfo (u_id,u_namer,u_name,u_mail,u_pass) VALUES(DEFAULT,'$signup_name','$signup_username','$signup_emailid','$signup_pass')";
 		mysqli_query($comconn,$qinsert);
 		echo '<script>alert("Registration Successful");
 		window.location.href="../login.php";</script>';
