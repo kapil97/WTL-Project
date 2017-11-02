@@ -90,7 +90,6 @@
         ?>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-   	<a class="dropdown-item" href="features.php?Price=10000&cat=<?= $cat?>"> below Rs. 10,000</a>
     <a class="dropdown-item" href="features.php?Price=20000&cat=<?= $cat?>"> below Rs. 20,000</a>
     <a class="dropdown-item" href="features.php?Price=30000&cat=<?= $cat?>"> below Rs. 30,000 </a>
     <a class="dropdown-item" href="features.php?Price=40000&cat=<?= $cat?>"> below Rs. 40,000</a>
