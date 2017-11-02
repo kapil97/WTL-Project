@@ -193,11 +193,12 @@
 
 <div class="panel panel-default">
   <div class="panel-heading" style="margin-top: 150px;">
-    <center><h3><i class="fa fa-clock-o fa-fw"></i> Price Comparison</h3></center>
+    <center><h3> Price Comparison</h3></center>
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body" style="margin-left: 60px; margin-right: 60px;">
-      <ul class="timeline">
+    
+                   <div class="row">
                 <?php
                   include ('config/comconn.php');
                   $prod="";
@@ -211,59 +212,30 @@
                   $row=mysqli_fetch_assoc($result); 
                   $img=mysqli_fetch_row($res);
                   asort($row);  
-                  $i=0;
                   foreach($row as $x=>$x_value)
-                   {
-                    if($i==0)
-                    {
+                  {
                    ?>
-                             <li>
-              <div class="timeline-badge"><i class="fa fa-check"></i>
-              </div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4 class="timeline-title"><center><?= $prod ?></center></h4>
-                      <?php
+               <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4 class="timeline-title"><center><?= $prod ?></center></h4>
+                </div>
+                <div class="card-footer">
+                  <?php
                         $res2=mysqli_query($comconn,"SELECT SiteLink FROM BuyLink where BuySite='".$x."'");
                         $link=mysqli_fetch_row($res2);
                       ?>
-                      <a href="<?= $link[0].$prod ?>"><img class="img-fluid d-block mx-auto" src="<?= $img[0] ?>" alt=""></a>
-                      <img width="100px" class="img-fluid d-block mx-auto" src="assets/img/logos/<?= $x ?>.jpg" alt="">
-                  </div>
-                  <div class="timeline-body">
-                      <h4><center>Rs.<?= $x_value ?>/-</center></h4>
-                  </div>
+                  <a href="<?= $link[0].$prod ?>"><img class="img-fluid d-block mx-auto" src="<?= $img[0] ?>" alt=""></a>
+                  <img width="100px" class="img-fluid d-block mx-auto" src="assets/img/logos/<?= $x ?>.jpg" alt="">
+                  <h4><center>Rs.<?= $x_value ?>./-</center></h4>
+                </div>
               </div>
-          </li>
-          <?php
-            $i=1;
-          }
-          elseif ($i==1) {
-          ?>
-              <li class="timeline-inverted">
-              <div class="timeline-badge"><i class="fa fa-check"></i>
-              </div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4 class="timeline-title"><center><?= $prod ?></center></h4>
-                      <?php
-                        $res2=mysqli_query($comconn,"SELECT SiteLink FROM BuyLink where BuySite='".$x."'");
-                        $link=mysqli_fetch_row($res2);
-                      ?>
-                      <a href="<?= $link[0].$prod ?>"><img class="img-fluid d-block mx-auto" src="<?= $img[0] ?>" alt=""></a>
-                      <img width="100px" class="img-fluid d-block mx-auto" src="assets/img/logos/<?= $x ?>.jpg" alt="">
-                  </div>
-                  <div class="timeline-body">
-                      <h4><center>Rs.<?= $x_value ?>./-</center></h4>
-                  </div>
-              </div>
-          </li>
-          <?php
-            $i=0;
-        }
-                   }
-                ?>
-      </ul>
+            </div>
+
+            <?php
+              }
+            ?>
+            </div>
   </div>
     <!-- /.panel-body -->
 </div>
