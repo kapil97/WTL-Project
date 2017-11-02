@@ -68,11 +68,11 @@
           <h1 class="my-4"> </h1>
           <div class="list-group" style="font-size: 30px">
           </div>
-
-        </div>
+                  </div>
         <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+<?php
 
-      <?php
           include ('config/comconn.php');
           $prod="";
           $id=$_SESSION['id'];
@@ -95,11 +95,7 @@
           }
           else
           {
-            
-        ?>
-        <div class="col-lg-9">
-      <?php
-echo "<h5>Already added to Wishlist..!</h5>";
+echo "<h5>Already added to Wishlist..!</h5><br><br>";
           }
           }
           }
@@ -109,7 +105,7 @@ echo "<h5>Already added to Wishlist..!</h5>";
               $s="delete from wishlist where UserID=$id AND ProdName='".$prod."'";
             $result = mysqli_query($comconn,$s);
             if($result==true)
-              echo "<h5>Removed from wishlist..!</h5>";
+              echo "<h5>Removed from wishlist..!</h5><br><br>";
           }}
           $result=mysqli_query($comconn,"select ProdName from wishlist where UserId='$id'");
       ?>
@@ -127,15 +123,43 @@ echo "<h5>Already added to Wishlist..!</h5>";
                   <h4 class="card-title">
                     <a href="compare.php?prod=<?= $row[0]?>"><?= $row[0]?></a>
                   </h4>
-                      <div class="card-footer">
-                  <a href="wishlist.php?remove=<?= $row[0]?>">Remove from wishlist</a>
                 </div>
+                      <div class="card-footer">
+                  <p><a href="wishlist.php?remove=<?= $row[0]?>">Remove from wishlist</a></p>
                 </div>
               </div>
             </div>
             <?php
             }
             ?>
+          </div>
+          <!-- /.row -->
+                    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <center><img class="d-block img-fluid" src="assets/img/logos/amazon-logo.jpg" alt="First slide"></center>
+              </div>
+              <div class="carousel-item">
+                <center><img class="d-block img-fluid" src="assets/img/logos/flipkart-logo.jpg" alt="Second slide"></center>
+              </div>
+              <div class="carousel-item">
+                <center><img class="d-block img-fluid" src="assets/img/logos/snapdeal-logo.png" alt="Third slide"></center>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
         <!-- /.col-lg-9 -->
 

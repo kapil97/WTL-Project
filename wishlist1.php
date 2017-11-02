@@ -66,96 +66,65 @@
 
           <h1 class="my-4"> </h1>
           <div class="list-group" style="font-size: 30px">
-            <a href="categories.php?cat=Laptop" class="list-group-item">Laptops</a>
-            <a href="categories.php?cat=Mobile" class="list-group-item">Mobiles</a>
-            <a href="categories.php?cat=Tablet" class="list-group-item">Tablets</a>
           </div>
-          <div>
-            <div class="dropdown show">
-              <br><br><br>
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Your Budget
-  </a>
-<?php
-          include ('config/comconn.php');
-          $price="";
-          if ($_SERVER['REQUEST_METHOD']=='GET') {
-            if (Key_Exists("Price",$_GET) && Key_Exists("cat",$_GET)) {
-              $price=$_GET['Price'];
-              $cat=$_GET['cat'];
-            }
-            $result=mysqli_query($comconn,"SELECT * FROM $cat where Price<=$price;");
-
-          }
-          if ($cat=="Laptop") {
-        ?>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="features.php?Price=10000&cat=<?= $cat?>"> below Rs. 10,000</a>
-    <a class="dropdown-item" href="features.php?Price=20000&cat=<?= $cat?>"> below Rs. 20,000</a>
-    <a class="dropdown-item" href="features.php?Price=30000&cat=<?= $cat?>"> below Rs. 30,000 </a>
-    <a class="dropdown-item" href="features.php?Price=40000&cat=<?= $cat?>"> below Rs. 40,000</a>
-    <a class="dropdown-item" href="features.php?Price=60000&cat=<?= $cat?>"> below Rs. 60,000</a>
-
-  </div>
-  <?php
-  }
-  else if($cat=="Mobile")
-  {
-  ?>
-   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="features.php?Price=5000&cat=<?= $cat?>"> below Rs. 5,000</a>
-    <a class="dropdown-item" href="features.php?Price=10000&cat=<?= $cat?>"> below Rs. 10,000</a>
-    <a class="dropdown-item" href="features.php?Price=20000&cat=<?= $cat?>"> below Rs. 20,000 </a>
-    <a class="dropdown-item" href="features.php?Price=30000&cat=<?= $cat?>"> below Rs. 30,000 </a>
-    <a class="dropdown-item" href="features.php?Price=40000&cat=<?= $cat?>"> below Rs. 40,000</a>
-    <a class="dropdown-item" href="features.php?Price=60000&cat=<?= $cat?>"> below Rs. 60,000</a>
-  </div>
-  <?php
-  }
-    elseif ($cat=="Tablet") {
-  ?>
-   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="features.php?Price=15000&cat=<?= $cat?>"> below Rs. 15,000</a>
-    <a class="dropdown-item" href="features.php?Price=30000&cat=<?= $cat?>"> below Rs. 30,000</a>
-    <a class="dropdown-item" href="features.php?Price=45000&cat=<?= $cat?>"> below Rs. 45,000 </a>
-    <a class="dropdown-item" href="features.php?Price=60000&cat=<?= $cat?>"> below Rs. 60,000</a>
-    <a class="dropdown-item" href="features.php?Price=75000&cat=<?= $cat?>"> below Rs. 75,000</a>
-  </div>
-  <?php
-    }
-  ?>
-</div>
-          </div>
-        </div>
+                  </div>
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
-          <h5>Click on Product Name to Compare Prices</h5><br>
+<?php
+
+          include ('config/comconn.php');
+          $prod="";
+          $id=$_SESSION['id'];
+          if ($_SERVER['REQUEST_METHOD']=='GET') {
+            if (Key_Exists("prod",$_GET)) {
+              $prod=$_GET['prod'];
+              $s="select * from wishlist where UserID=$id AND ProdName='".$prod."'";
+            $result = mysqli_query($comconn,$s);
+            $row = mysqli_fetch_row($result);
+            if($row==false)
+            {
+            $s = "select (max(WishID)+1) from wishlist";
+            $result = mysqli_query($comconn,$s);
+            $row = mysqli_fetch_row($result);
+            $no=1;
+            if($row[0]!=NULL)
+              $no=$row[0];
+            $id=$_SESSION['id'];
+            $result=mysqli_query($comconn,"insert into wishlist values('$no','$id','".$prod."')");
+          }
+          else
+          {
+echo "<h5>Already added to Wishlist..!</h5><br><br>";
+          }
+          }
+          }
+          if ($_SERVER['REQUEST_METHOD']=='GET') {
+            if (Key_Exists("remove",$_GET)) {
+              $prod=$_GET['remove'];
+              $s="delete from wishlist where UserID=$id AND ProdName='".$prod."'";
+            $result = mysqli_query($comconn,$s);
+            if($result==true)
+              echo "<h5>Removed from wishlist..!</h5><br><br>";
+          }}
+          $result=mysqli_query($comconn,"select ProdName from wishlist where UserId='$id'");
+      ?>
           <div class="row">
             <?php
-            while(($row=mysqli_fetch_assoc($result))==true)
+            while(($row=mysqli_fetch_row($result))==true)
             {
-              $prodname=$row['Name'];
-              $res=mysqli_query($comconn,"SELECT ProdImg FROM Products where ProdName='$prodname';");
+              $res=mysqli_query($comconn,"select ProdImg from products where ProdName='".$row[0]."'");
               $img=mysqli_fetch_row($res);
             ?>
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-2">
               <div class="card h-100">
-                <a href="<?= $img[0] ?>"><img class="card-img-top" src="<?= $img[0] ?>" alt=""></a>
+                <a href="<?= $row[0] ?>"><img class="card-img-top" src="<?= $img[0] ?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="compare.php?prod=<?= $row['Name']?>"><?= $row['Name']?></a>
+                    <a href="compare.php?prod=<?= $row[0]?>"><?= $row[0]?></a>
                   </h4>
-                    <?php
-                    foreach($row as $x => $x_value) {
-                      if($x!="MobID" && $x!="Name")
-                        echo "<b>".$x . "</b> : " . $x_value;
-                        echo "<br>";
-                    }
-                    ?>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted"><a href="wishlist.php?prod=<?= $row['Name']?>"><i class="fa fa-heart" aria-hidden="true"></i>Add to wishlist</a></small>
+                      <div class="card-footer">
+                  <p><a href="wishlist.php?remove=<?= $row[0]?>">Remove from wishlist</a></p>
                 </div>
               </div>
             </div>
