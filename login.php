@@ -111,7 +111,7 @@ header("location: categories.php");
               <input type="password" class="form-control" name="logpass" placeholder="Password" required=""/>  
               <br>    
               <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Login</button> 
-              <span><?php echo $error; ?></span>  
+              <span><?php echo $error; ?></span>
             </form>
           </div>
       </div>

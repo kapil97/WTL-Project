@@ -1,5 +1,5 @@
 <?php
-  include ('config/signupAction.php');
+  include ('config/signupnew.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,13 +79,20 @@
         <div class="container">
         <div class="wrapper">
            <form action="config/signupAction.php" class="form-signin" name="signup" method="POST">       
+              <input type="text" class="form-control" name="name" placeholder="Enter your name" required="" autofocus="" /><br>
               <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" /><br>
-              <input type="text" class="form-control" name="emailid" placeholder="Email Id" required="" autofocus="" /><br>
-              <input type="password" class="form-control" name="pass" placeholder="Password" required=""/><br>
+              <input type="email" class="form-control" name="emailid" placeholder="Email Id" required="" autofocus="" /><br>
+              <input type="password" class="form-control" name="pass" placeholder="Password" pattern=".{6,}" title="Six or more characters required" required=""/><br>
+              <input type="password" class="form-control" name="repass" placeholder="Re-enter Password" required=""/><br>
+              <div class="form-check">
+                <label class="checkbox">
+                <input type="checkbox" class="checkbox" required=""> &nbsp;I accept all the Terms &amp; Conditions.</label>
+             <!--> </div><br><span><?php $error; ?></span> <!-->
              <button class="btn btn-lg btn-primary btn-block" name="register" type="submit">Register</button>  
             </form>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- Bootstrap core JavaScript -->
