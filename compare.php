@@ -217,7 +217,7 @@
                    ?>
                <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <div class="card-body">
+                <div class="card-body" style="flex: 0 1 auto">
                   <h4 class="timeline-title"><center><?= $prod ?></center></h4>
                 </div>
                 <div class="card-footer">
